@@ -1,0 +1,4 @@
+#!/bin/sh
+
+addgroup foundryvtt 2>/dev/null
+adduser -S -H -h /var/lib/foundryvtt -s /sbin/nologin -G foundryvtt foundryvtt 2>/dev/null
