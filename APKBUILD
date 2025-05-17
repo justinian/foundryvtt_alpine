@@ -1,7 +1,7 @@
 # Maintainer: Justin C Miller <justin@justin.cm>
 pkgname=foundryvtt
-pkgver=12.331
-pkgrel=1
+pkgver=13.342
+pkgrel=3
 pkgdesc="Foundry Virtual Tabletop"
 url="https://foundryvtt.com"
 arch="noarch"
@@ -17,7 +17,7 @@ pkggroups="foundryvtt"
 source="
 	foundryvtt.initd
 	foundryvtt.confd
-	FoundryVTT-$pkgver.zip
+	FoundryVTT-Node-$pkgver.zip
 	"
 builddir="$srcdir/"
 
@@ -41,12 +41,12 @@ package() {
 
 	mkdir -p "$pkgdir"/usr/lib/foundryvtt
 	mkdir -p "$pkgdir"/var/lib/foundryvtt
-	cp -r "$srcdir"/locales "$srcdir"/resources "$pkgdir"/usr/lib/foundryvtt/
-	chown -R $pkdusers:$pkggroups "$pkgdir"/usr/lib/foundryvtt
+	find "$srcdir" -maxdepth 1 -type d -o -type f | xargs -I FILE cp -r FILE "$pkgdir"/usr/lib/foundryvtt/
+	chown -R $pkgusers:$pkggroups "$pkgdir"/usr/lib/foundryvtt
 }
 
 sha512sums="
-a17947511c1877e904496d8fbe7ca946ecf83f0c4b88af99eb43cb12533790265308b92e2ca477abd56077e9a904d08ea4e01d675cab9c7694cfd3fac56a572e  foundryvtt.initd
+1660e10c373592e0ed3181d19deb156428566963da9f830bb30735e72261400748a4ef2e5c27ac3c19e880c1cae02e5b9b6edebbd625efc0b04a5b5f9667684e  foundryvtt.initd
 757024ff6f58afb03faffcf123f78bc1e5a945b387c1b2061c684662077e1b56e2ce77d09200253b42552e03ee29f46bfab4efa727b78992278d8be1feb8c299  foundryvtt.confd
-e5b306732379d5471437356c5692d125d07891a579292528c661b34d485cc844b04a774779a130997ed83629b96e124d9d017784d2cf8b2ce12b80bfe5e0a2c3  FoundryVTT-12.331.zip
+f0fe079a4592a4b88a6fa3e95d298a3a78aa5e7610746a52b06b59122439d4a19ba5e50cebe4201afa0ff9ca438ab3eaba1022f4ad1096f265c3fdcc2c99f258  FoundryVTT-Node-13.342.zip
 "

@@ -2,7 +2,7 @@
 
 name="foundryvtt"
 command="/usr/bin/node"
-command_args="/usr/lib/foundryvtt/resources/app/main.js --dataPath=${FOUNDRYVTT_DATA}"
+command_args="/usr/lib/foundryvtt/main.js --dataPath=${FOUNDRYVTT_DATA}"
 command_background="yes"
 command_user="foundryvtt"
 pidfile="/run/foundryvtt.pid"
